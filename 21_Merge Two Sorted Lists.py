@@ -27,8 +27,21 @@ class ListNode:
 # Linked List
 class Solution_1:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        pass   
-                    
+        dummy = ListNode(None)          # 先建立一個虛擬節點, 紀錄要回傳的
+        previous = dummy                # 建立previous節點, 用來遍歷並記錄下一個節點
+        while l1 and l2:                # 當兩個list都還有節點時開始做
+            if l1.val <= l2.val:        # 若 list 1 第一個點小於 list 2 第一個節點
+                previous.next = l1      # 較小的該節點丟進previous
+                l1 = l1.next            # 該list節點往下走一個
+            else:
+                previous.next = l2      # 較小的該節點丟進previous
+                l2 = l2.next            # 該list節點往下走一個
+                
+            previous = previous.next    # previous 要往下走 
+        
+        previous.next = l1 or l2        # 若l1 或 l2 其中一個為空, 就把剩下的節點全塞到後面
+        
+        return dummy.next            
 
 if __name__ == '__main__':
     
