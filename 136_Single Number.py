@@ -1,3 +1,22 @@
+'''
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+136. Single Number
+
+Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
+
+Follow up: Could you implement a solution with a linear runtime complexity and without using extra memory?
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Example:
+
+Input: nums = [4,1,2,1,2]
+Output: 4
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+'''
+
 class Solution:
     def singleNumber(self, nums):
 
@@ -10,7 +29,8 @@ class Solution:
 
         return new_list.pop()            
 
-list = [4,1,2,1,2]
-s = Solution()
-answer = s.singleNumber(list)
-print("answer: " + str(answer))
+if __name__ == '__main__':
+    list = [4,1,2,1,2]
+    s = Solution()
+    answer = s.singleNumber(list)
+    print("answer: " + str(answer))
