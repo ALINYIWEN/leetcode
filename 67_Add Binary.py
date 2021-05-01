@@ -18,35 +18,17 @@ Output: "10101"
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 '''
 
-# My self
-class Solution_1:
-    def twoSum(self, nums, target):
-        for i in range(len(nums)):
-            value = target - nums[i]
-            for j in range(len(nums)-1):
-                if value == nums[j+1] and j+1 != i:    
-                    return i, j+1       
-                else:
-                    j+=1
 
-
-# Hash table
-class Solution_2:
-    def twoSum(self, nums, target):
-        numMap = {}
-        for i in range(len(nums)):
-            if target - nums[i] in numMap:
-                return [numMap.get(target-nums[i]), i]
-            else:
-                numMap[nums[i]] = i
+# string
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        return bin(int(a, 2)+ int(b, 2))[2:]
            
                 
             
     
 if __name__ == '__main__':
 
-    #s1 = Solution_1()
-    #print(s1.twoSum([2, 5, 5, 11], 10))     
-    
-    s2 = Solution_2()
-    print(s2.twoSum([2, 5, 5, 11], 10))         
+    s = Solution()
+    print(s.addBinary("1010", "1011"))     
+        
