@@ -29,12 +29,32 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+        
 class Solution:
+    def __init__(self) -> None:
+        self.max = 0 # 預設一個全局最大值
+        
     def longestUnivaluePath(self, root: TreeNode) -> int:
-           
+        if not root:
+            return 0
+        self.count(root, root.val)
+        return self.max
+        
+    def count(self, root: TreeNode, value: int ) -> int:
+        if not root:
+            return 0
+        left = self.count(root.left, root.val)
+        right = self.count(root.right, root.val)
+        self.max = max(self.max, left + right)
+        
+        if value != root.val:
+            return 0
+        else:
+            return 1+ max(left + right)    
+        
 if __name__ == '__main__':
     
-    list = [1, 2, 3, 4, 5]
+    list = [5,4,5,1,1,5]
     s = Solution()
     print(s.productExceptSelf(list))     
                     
